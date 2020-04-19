@@ -38,7 +38,7 @@ namespace H4_cryptography
             using (var sha1 = SHA1.Create())
             {
                 byte[] hashedvalue = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
-                result.HashedValue = Encoding.ASCII.GetString(hashedvalue);
+                result.HashedValue = Convert.ToBase64String(hashedvalue);
                 result.HashedValueHex = BitConverter.ToString(hashedvalue).Replace("-", string.Empty);
                 result.HashedValueAsByte = hashedvalue;
             }
@@ -52,7 +52,7 @@ namespace H4_cryptography
             using (var sha256 = SHA256.Create())
             {
                 byte[] hashedvalue = sha256.ComputeHash(Encoding.ASCII.GetBytes(value));
-                result.HashedValue = Encoding.ASCII.GetString(hashedvalue);
+                result.HashedValue = Convert.ToBase64String(hashedvalue);
                 result.HashedValueHex = BitConverter.ToString(hashedvalue).Replace("-", string.Empty);
                 result.HashedValueAsByte = hashedvalue;
             }
@@ -66,7 +66,7 @@ namespace H4_cryptography
             using (var sha512 = SHA1.Create())
             {
                 byte[] hashedvalue = sha512.ComputeHash(Encoding.ASCII.GetBytes(value));
-                result.HashedValue = Encoding.ASCII.GetString(hashedvalue);
+                result.HashedValue = Convert.ToBase64String(hashedvalue);
                 result.HashedValueHex = BitConverter.ToString(hashedvalue).Replace("-", string.Empty);
                 result.HashedValueAsByte = hashedvalue;
             }
@@ -82,7 +82,7 @@ namespace H4_cryptography
             {
                 
                 byte[] hashedvalue = hmac.ComputeHash(Encoding.ASCII.GetBytes(value));
-                result.HashedValue = Encoding.ASCII.GetString(hashedvalue);
+                result.HashedValue = Convert.ToBase64String(hashedvalue);
                 result.HashedValueHex = BitConverter.ToString(hashedvalue).Replace("-", string.Empty);
                 result.HashedValueAsByte = hashedvalue;
                 result.HMACKey = hmac.Key;
@@ -98,7 +98,7 @@ namespace H4_cryptography
             {
                 hmac.Key = key;
                 byte[] hashedvalue = hmac.ComputeHash(Encoding.ASCII.GetBytes(value));
-                result.HashedValue = Encoding.ASCII.GetString(hashedvalue);
+                result.HashedValue = Convert.ToBase64String(hashedvalue);
                 result.HashedValueHex = BitConverter.ToString(hashedvalue).Replace("-", string.Empty);
                 result.HashedValueAsByte = hashedvalue;
                 result.HMACKey = hmac.Key;
