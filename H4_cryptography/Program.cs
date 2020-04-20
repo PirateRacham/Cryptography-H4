@@ -164,7 +164,7 @@ namespace H4_cryptography
         }
         static void SymmetricalCrypt()
         {
-
+            Symmetrical.EncryptionPresenter.Start();
         }
 
         /// <summary>
